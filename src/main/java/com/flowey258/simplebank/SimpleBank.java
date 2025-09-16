@@ -1,5 +1,6 @@
 package com.flowey258.simplebank;
 
+import com.flowey258.simplebank.api.BankAPI;
 import com.flowey258.simplebank.commands.BankCommand;
 import com.flowey258.simplebank.data.DataManager;
 import com.flowey258.simplebank.economy.BankManager;
@@ -34,6 +35,9 @@ public class SimpleBank extends JavaPlugin {
         // Initialize managers
         dataManager = new DataManager(this);
         bankManager = new BankManager(this);
+
+        // Initialize API
+        BankAPI.initialize(this);
 
         // Register commands
         getCommand("bank").setExecutor(new BankCommand(this));
