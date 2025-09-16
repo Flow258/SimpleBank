@@ -1,0 +1,107 @@
+# SimpleBank Configuration
+# Plugin by YourName
+
+# Bank Settings
+bank:
+  # Maximum balance a player can have in their bank account
+  # Set to -1 for unlimited
+  max-balance: -1
+
+  # Starting balance for new players
+  starting-balance: 0.0
+
+# Interest System
+interest:
+  # Enable interest on bank accounts
+  enabled: false
+
+  # Interest rate (0.01 = 1% per interval)
+  rate: 0.01
+
+  # Minimum balance required to earn interest
+  minimum-balance: 1000.0
+
+  # Maximum interest that can be earned per interval
+  maximum-interest: 10000.0
+
+  # Interval between interest payments (in minutes)
+  # Default: 1440 minutes = 24 hours
+  interval-minutes: 1440
+
+# Notifications
+notifications:
+  # Show bank balance when player joins
+  login-balance: true
+
+  # Broadcast top balances periodically
+  broadcast-top: false
+
+  # Interval for broadcasting top balances (in minutes)
+  broadcast-interval: 60
+
+# Data Storage
+storage:
+  # Storage type: YAML, SQLITE, MYSQL
+  type: "YAML"
+
+  # Auto-save interval (in minutes)
+  auto-save: 5
+
+  # MySQL settings (only used if storage type is MYSQL)
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "minecraft"
+    username: "root"
+    password: ""
+    table-prefix: "bank_"
+
+# Messages
+messages:
+  prefix: "&8[&e&lBANK&8] "
+
+  # Permission messages
+  no-permission: "{prefix}&cYou don't have permission to use this command!"
+
+  # Balance messages
+  balance: "{prefix}&7Your bank balance: &e${balance}"
+  balance-other: "{prefix}&7{player}'s bank balance: &e${balance}"
+
+  # Transaction messages
+  deposit-success: "{prefix}&aDeposited &e${amount} &ainto your bank account! New balance: &e${balance}"
+  withdraw-success: "{prefix}&aWithdrew &e${amount} &afrom your bank account! New balance: &e${balance}"
+
+  # Error messages
+  invalid-amount: "{prefix}&cPlease enter a valid amount!"
+  insufficient-funds: "{prefix}&cYou don't have enough money in your wallet!"
+  insufficient-bank-funds: "{prefix}&cYou don't have enough money in your bank account!"
+  bank-limit-reached: "{prefix}&cYour bank account would exceed the maximum limit of ${limit}!"
+  player-not-found: "{prefix}&cPlayer not found!"
+
+  # Admin messages
+  admin-set: "{prefix}&aSet {player}'s bank balance to &e${amount}"
+  admin-reset: "{prefix}&aReset {player}'s bank balance to $0.00"
+
+  # Interest messages
+  interest-earned: "{prefix}&aYou earned &e${amount} &ain interest! New balance: &e${balance}"
+
+  # Notification messages
+  login-notification: "{prefix}&7Welcome back! Your bank balance: &e${balance}"
+
+  # Help messages
+  help-header: "&e&l=== Bank Help ==="
+  help-balance: "&7/bank balance &f- Check your bank balance"
+  help-deposit: "&7/bank deposit <amount> &f- Deposit money into your bank"
+  help-withdraw: "&7/bank withdraw <amount> &f- Withdraw money from your bank"
+  help-admin: "&c&lAdmin Commands:"
+  help-admin-balance: "&7/bank balance <player> &f- Check a player's balance"
+  help-admin-set: "&7/bank set <player> <amount> &f- Set a player's balance"
+  help-admin-reset: "&7/bank reset <player> &f- Reset a player's balance"
+  help-admin-top: "&7/bank top &f- View top bank balances"
+
+# Sound Effects (optional)
+sounds:
+  enabled: true
+  deposit: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  withdraw: "ENTITY_ITEM_PICKUP"
+  error: "ENTITY_VILLAGER_NO"
