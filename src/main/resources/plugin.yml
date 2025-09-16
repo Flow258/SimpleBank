@@ -4,7 +4,7 @@ main: com.flowey258.simplebank.SimpleBank
 api-version: 1.21
 depend: [Vault]
 
-author: Ashley Dave N. Alquzialas
+author: Flow258
 description: A simple bank system plugin that integrates with Vault
 
 commands:
