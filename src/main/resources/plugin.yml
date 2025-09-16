@@ -1,0 +1,40 @@
+name: SimpleBank
+version: '${project.version}'
+main: com.flowey258.simplebank.SimpleBank
+api-version: 1.21
+depend: [Vault]
+
+author: Ashley Dave N. Alquzialas
+description: A simple bank system plugin that integrates with Vault
+
+commands:
+  bank:
+    description: Access bank commands
+    usage: /<command> [balance|deposit|withdraw] [amount]
+    aliases: [banks, bankaccount]
+
+permissions:
+  bank.use:
+    description: Allows players to use basic bank commands
+    default: true
+  bank.deposit:
+    description: Allows players to deposit money
+    default: true
+  bank.withdraw:
+    description: Allows players to withdraw money
+    default: true
+  bank.balance:
+    description: Allows players to check their bank balance
+    default: true
+  bank.admin:
+    description: Allows admins to manage other players' bank accounts
+    default: op
+  bank.admin.set:
+    description: Allows setting bank balances for other players
+    default: op
+  bank.admin.reset:
+    description: Allows resetting bank balances
+    default: op
+  bank.interest.exempt:
+    description: Exempts player from interest calculations
+    default: false
